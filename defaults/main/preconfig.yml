@@ -1,0 +1,32 @@
+---
+op5_preconfig: true            # true, false - import tasks to playbook 
+
+op5_hostname: op501.test.local # FQDN without trailing dot
+op5_timezone: Europe/Stockholm # timezone - use "timedatectl list-timezones"
+op5_all_pkgs_state: latest     # installed or latest 
+op5_selinux_state: permissive  # enforcing, permissive, disabled
+op5_firewalld_enabled: yes     # yes, no
+op5_firewalld_state: started   # started, stopped, reloaded, restarted
+op5_firewalld_allowed_ports:   # allowed ports, public zone
+  - 80/tcp
+  - 443/tcp
+  - 5666/tcp
+  - 15551/tcp
+  - 161/udp
+  - 162/udp
+  - 514/udp
+op5_ntp_servers:               # ntp servers to use
+  - 0.pool.ntp.org
+  - 1.pool.ntp.org
+  - 2.pool.ntp.org
+  - 3.pool.ntp.org
+op5_opt_pkgs:                  # optional packages to install
+  - libselinux-python
+  - net-tools
+  - telnet
+  - vim
+  - git
+  - gzip
+  - bzip2
+  - unzip
+  - open-vm-tools

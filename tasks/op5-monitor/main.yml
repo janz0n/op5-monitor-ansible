@@ -1,0 +1,6 @@
+---
+# tasks file for op5-monitor
+- import_tasks: addrepos.yml
+  tags: [addrepos]
+- import_tasks: op5-monitor.yml
+  tags: [op5-monitor]

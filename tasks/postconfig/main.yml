@@ -1,0 +1,6 @@
+---
+# tasks file for postconfig
+- import_tasks: smsd.yml
+  tags: [smsd]
+- import_tasks: op5backup.yml
+  tags: [op5backup]

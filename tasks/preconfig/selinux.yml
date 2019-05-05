@@ -1,0 +1,6 @@
+---
+- name: Set SELinux State To '{{  op5_selinux_state }}'
+  selinux:
+    policy: targeted
+    state: "{{  op5_selinux_state }}"
+  become: true

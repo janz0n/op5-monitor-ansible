@@ -1,0 +1,22 @@
+galaxy_info:
+  role_name: op5-monitor
+  author: Henrik Janzon
+  description: op5-monitor server, management and network monitoring
+  company: op5
+
+  license: license (GPLv3)
+
+  min_ansible_version: 2.7
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - op5
+    - op5monitor
+    - monitoring
+    - nagios
+    - naemon
+    - nms

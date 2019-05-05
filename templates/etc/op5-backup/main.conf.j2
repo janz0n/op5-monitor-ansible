@@ -1,0 +1,48 @@
+#
+# op5-backup configuration file
+# 
+
+# Tranfer: 'ftp', 'sftp', 'scp'  or 'local'. Where:
+# ftp - moves the backupfile to configured ftp server
+# sftp - moves the backupfile to configured server over sftp (ssh)
+# scp - moves the backupfile to configured server over scp (ssh)
+#       This requires that you have setup your ssh-keys correct.
+# local - copy to local path (whick could be a mounted remote filesystem)
+transfer="local"
+
+# Change this to the path where the backups shall be placed
+# in case of local transfer
+storagepath="{{ op5_backup_storagepath }}"
+
+# FTP and SFTP settings
+# The settings below are used no matter if you are connecting
+# over FTP or SFTP.
+ftp_server="server.domain.com"
+ftp_path="path" # FTP:  absolute path but without leading /
+                # SFTP: either aboslute path or relative path
+                #       according to the user's home directory.
+ftp_user="username"
+ftp_pass="password"
+
+
+# SCP settings
+scp_server="server.domain.com"
+scp_path="path" # absolute path
+scp_user="username"
+
+# Custom name of backup file (file extension is appended automtically)
+# If not set the backup will be named '<hostname>-<date>.backup'
+# or '<hostname>-<date>.<mode>.backup' if not a default mode is used.
+#backupfilename="monitorbackuptesting"
+
+# Exclude date from backupfilename. yes/no
+excludedate="no"
+
+# Create date directories when uploading via FTP
+createftpdatedirs="yes"
+
+# To backup custom files or directories edit '/etc/op5-backup/modules/custom' file.
+
+# Set working directory. Need to have enough free disk space since it's
+# here the backup files will be processed.
+work_dir="/var/lib/op5-backup"

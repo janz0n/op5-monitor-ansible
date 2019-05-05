@@ -1,0 +1,24 @@
+---
+- name: Verify Firewalld Installed
+  yum:
+    name: firewalld
+    state: installed
+  become: true
+
+- name: Verify Firewalld '{{ op5_firewalld_state }}' And 'enabled={{ op5_firewalld_enabled }}'
+  service:
+    name: firewalld
+    state: "{{ op5_firewalld_state }}"
+    enabled: "{{ op5_firewalld_enabled }}"
+  become: true
+
+- name: Add Firewalld Rules
+  firewalld:
+    zone: public
+    port: "{{ item }}"
+    permanent: yes
+    state: enabled
+  with_items: "{{ op5_firewalld_allowed_ports }}"
+  notify: "Reload firewalld"
+  when: op5_firewalld_enabled is defined and op5_firewalld_enabled
+  become: true

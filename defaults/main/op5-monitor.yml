@@ -1,0 +1,5 @@
+---
+op5_monitor: true            # true, false - import tasks to playbook
+
+op5_monitor_version: 8       # 7 or 8 - latest micro release within major
+op5_monitor_state: installed # installed or latest

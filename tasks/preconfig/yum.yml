@@ -1,0 +1,6 @@
+---
+- name: Update All Packages
+  yum:
+    name: '*'
+    state: "{{ op5_all_pkgs_state }}"
+  become: true

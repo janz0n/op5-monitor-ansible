@@ -1,0 +1,1 @@
+{{ op5_backup_rotate }} root /usr/bin/find {{ op5_backup_storagepath }} -mtime +{{ op5_backup_rotate_days }} -name "*.????-??-??.backup" -exec rm -rf {} \; >/dev/null 2>&1

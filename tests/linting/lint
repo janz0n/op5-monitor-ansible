@@ -1,0 +1,2 @@
+/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin/yamllint -c /Users/henrikwrk/Desktop/projects/ansible/op5-monitor/tests/yamllint.yaml /Users/henrikwrk/Desktop/projects/ansible/op5-monitor
+/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin/yamllint -c /Users/henrikwrk/Desktop/projects/ansible/op5-monitor/tests/yamllint.yaml /Users/henrikwrk/Desktop/projects/ansible/op5-monitor

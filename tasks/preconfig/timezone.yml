@@ -1,0 +1,5 @@
+---
+- name: Set Timezone To '{{ op5_timezone }}'
+  timezone:
+    name: "{{ op5_timezone }}"
+  become: true

@@ -1,0 +1,16 @@
+---
+# tasks file for preconfig
+- import_tasks: optpkgs.yml
+  tags: [optpkgs]
+- import_tasks: hostname.yml
+  tags: [hostname]
+- import_tasks: chrony.yml
+  tags: [chrony]
+- import_tasks: timezone.yml
+  tags: [timezone]
+- import_tasks: yum.yml
+  tags: [yum]
+- import_tasks: selinux.yml
+  tags: [selinux]
+- import_tasks: firewalld.yml
+  tags: [firewalld]

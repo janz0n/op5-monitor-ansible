@@ -1,0 +1,11 @@
+---
+- name: Playbook::op5-monitor-update
+  hosts: op5-servers
+ 
+  roles:
+    - role: op5-monitor
+      vars:
+        op5_preconfig: false
+        op5_all_pkgs_state: installed
+        op5_monitor_state: latest
+        op5_postconfig: false

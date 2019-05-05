@@ -1,0 +1,21 @@
+# Example smsd.conf. Read the manual for a description
+
+devices = GSM1
+logfile = /var/log/smsd/smsd.log
+loglevel = 5
+user = root
+infofile = /var/run/smsd.working
+pidfile = /var/run/smsd.pid
+# 3.1.5 introduced smart logging
+# once your configuration is OK, set log level lower (5 is good in most cases)
+smart_logging = yes
+
+[GSM1]
+device = {{ op5_smsd_device }}
+incoming = yes
+baudrate = {{ op5_smsd_baudrate }}
+{% if op5_smsd_pin is defined and op5_smsd_pin|length %}
+pin = {{ op5_smsd_pin }}
+{% else %}
+#pin = 1111
+{% endif %}

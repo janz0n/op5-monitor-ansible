@@ -1,0 +1,24 @@
+---
+- name: Install Chrony
+  yum:
+    name: chrony
+    state: installed
+  become: true
+
+- name: Add NTP Servers To /etc/chrony.conf
+  template:
+    src: etc/chrony.conf.j2
+    dest: /etc/chrony.conf
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+  notify: "Restart chronyd"
+  become: true
+
+- name: Verify Chronyd Started And Enabled
+  service:
+    name: chronyd
+    state: started
+    enabled: yes
+  become: true

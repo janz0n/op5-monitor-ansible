@@ -1,0 +1,5 @@
+---
+- name: Set Hostname To '{{ op5_hostname }}'
+  hostname:
+    name: "{{ op5_hostname }}"
+  become: true

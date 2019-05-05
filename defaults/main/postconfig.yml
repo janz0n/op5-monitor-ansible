@@ -1,0 +1,10 @@
+---
+op5_postconfig: true                          # true, false - import tasks to playbook
+
+op5_smsd_device: "/dev/ttyS0"                 # serial port to use
+op5_smsd_pin: ""                              # sim-pin, empty equals no pin
+op5_smsd_baudrate: 115200                     # baudrate for sms-modem: TC35 - 38400, TC65 115200
+op5_backup_storagepath: "/root/op5backups/"   # path where to store backups
+op5_backup_run: "59 1 * * *"                  # when to run op5-backup, cron format
+op5_backup_rotate: "5 3 * * *"                # when to remove backups, cron format
+op5_backup_rotate_days: "7"                   # older than X backup files, should be deleted

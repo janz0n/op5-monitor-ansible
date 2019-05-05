@@ -1,0 +1,40 @@
+---
+# main tasks file for op5-monitor
+- name: Verify Supported Ansible Version
+  assert:
+    that:
+      - "ansible_version.full is version_compare('2.7', '>=')"
+    fail_msg: "You must update Ansible to at least 2.7 to use this Role"
+    success_msg: "Supported Ansible version"
+
+- name: Verify target host(s) contains supported OS version
+  assert:
+    that:
+      - "ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'"
+      - "ansible_distribution_major_version == '7'"
+    fail_msg: "Only CentOS7 and RHEL7 supported as target host(s) OS"
+    success_msg: "Target host(s) contains supported OS"
+
+- import_tasks: preconfig/main.yml
+  tags: [preconfig]
+  when: op5_preconfig is defined and op5_preconfig
+
+- import_tasks: op5-monitor/main.yml
+  tags: [op5-monitor]
+  when: op5_monitor is defined and op5_monitor
+
+- import_tasks: postconfig/main.yml
+  tags: [postconfig]
+  when: op5_postconfig is defined and op5_postconfig
+
+- import_tasks: optional/main.yml
+  tags: [optional]
+  when: op5_optional is defined and op5_optional
+
+- import_tasks: optimize/main.yml
+  tags: [optimize]
+  when: op5_optimize is defined and op5_optimize
+
+- import_tasks: custom/main.yml
+  tags: [custom]
+  when: op5_custom is defined and op5_custom

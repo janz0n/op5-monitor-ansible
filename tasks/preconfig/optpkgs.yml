@@ -1,0 +1,6 @@
+---
+- name: Install {{ op5_opt_pkgs }}
+  yum:
+    name: "{{ op5_opt_pkgs }}"
+    state: installed
+  become: true

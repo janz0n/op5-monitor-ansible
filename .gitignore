@@ -1,0 +1,5 @@
+#Ansible retries
+*.retry
+
+#Backup files
+*~

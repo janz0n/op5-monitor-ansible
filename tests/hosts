@@ -1,0 +1,7 @@
+#Host Inventory
+
+[op5-servers]
+10.13.37.140
+
+#[localhost]
+#mon02.test.local ansible_host=127.0.0.1

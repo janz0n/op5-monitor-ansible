@@ -1,0 +1,50 @@
+---
+- name: Playbook::op5-monitor
+  hosts: op5-servers
+ 
+  roles:
+    - role: op5-monitor
+      vars:
+        op5_hostname: op501.test.local
+        op5_preconfig: true  
+        op5_timezone: Europe/Stockholm
+        op5_all_pkgs_state: latest
+        op5_selinux_state: permissive
+        op5_firewalld_enabled: yes
+        op5_firewalld_state: started
+        op5_firewalld_allowed_ports:
+          - 80/tcp
+          - 443/tcp
+          - 5666/tcp
+          - 15551/tcp
+          - 161/udp
+          - 162/udp
+          - 514/udp
+        op5_ntp_servers:
+          - 0.pool.ntp.org
+          - 1.pool.ntp.org
+          - 2.pool.ntp.org
+          - 3.pool.ntp.org
+        op5_opt_pkgs: 
+          - libselinux-python
+          - net-tools
+          - telnet
+          - vim
+          - git
+          - gzip
+          - bzip2
+          - unzip
+          - open-vm-tools
+
+        op5_monitor: true
+        op5_monitor_version: 8
+        op5_monitor_state: installed
+
+        op5_postconfig: true
+        op5_smsd_device: "/dev/ttyS0"
+        op5_smsd_pin: ""
+        op5_smsd_baudrate: 115200
+        op5_backup_storagepath: "/root/op5backups/"
+        op5_backup_run: "59 1 * * *"
+        op5_backup_rotate: "5 3 * * *"
+        op5_backup_rotate_days: "7"

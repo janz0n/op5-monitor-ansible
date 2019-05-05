@@ -1,0 +1,26 @@
+---
+- name: Clean Yum Metadata
+  command: yum clean metadata
+  args:
+    warn: false
+  when: op5_monitor_state is defined and op5_monitor_state == "latest"
+
+- name: Refresh SELinux Fact
+  setup:
+    filter: ansible_selinux
+
+- name: Verify SELinux Not Enforcing
+  assert:
+    that:
+      - "ansible_selinux is defined and ansible_selinux.config_mode != 'enforcing'"
+      - "ansible_selinux is defined and ansible_selinux.mode != 'enforcing'"
+    fail_msg: "SELinux Enforcing, not supported"
+    success_msg: "SELinux Not Enforcing"
+
+- name: OP5 Monitor
+  yum:
+    name: op5-monitor
+    state: "{{ op5_monitor_state }}"
+  register: op5_monitor_yum_result
+  notify: "Reboot"
+  become: true

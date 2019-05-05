@@ -1,0 +1,42 @@
+---
+- name: Add RPM-GPG-KEY-OP5
+  copy:
+    src: etc/pki/rpm-gpg/RPM-GPG-KEY-op5
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-op5
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Add RPM-GPG-KEY-EPEL-7
+  copy:
+    src: etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Add op5-monitor-updates Repository (op5-release.repo 1/2)
+  yum_repository:
+    name: op5-monitor-updates
+    description: op5 Monitor Updates
+    file: op5-release
+    baseurl: http://repos.op5.com/el$releasever/$basearch/monitor/{{ op5_monitor_version }}/updates
+    gpgcheck: yes
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-op5
+    enabled: yes
+  become: true
+
+- name: Add op5-epel Repository (op5-release.repo 2/2)
+  yum_repository:
+    name: op5-epel
+    description: op5 EPEL
+    file: op5-release
+    baseurl: http://repos.op5.com/epel/7/$basearch
+    gpgcheck: yes
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+    enabled: yes
+  become: true

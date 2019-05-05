@@ -1,0 +1,11 @@
+---
+- name: Add Smsd Configuration To /etc/smsd.conf
+  template:
+    src: etc/smsd.conf.j2
+    dest: /etc/smsd.conf
+    backup: yes
+    owner: root
+    group: root
+    mode: 0600
+  notify: "Restart smsd"
+  become: true

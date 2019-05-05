@@ -1,0 +1,28 @@
+---
+- name: Modify /etc/op5-backup/main.conf
+  template:
+    src: etc/op5-backup/main.conf.j2
+    dest: /etc/op5-backup/main.conf
+    backup: yes
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Add op5backup Schedule (etc/cron.d/op5backup)
+  template:
+    src: etc/cron.d/op5backup.j2
+    dest: /etc/cron.d/op5backup
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+
+- name: Add op5backup Rotate Schedule (etc/cron.d/op5backup-rotate)
+  template:
+    src: etc/cron.d/op5backup-rotate.j2
+    dest: /etc/cron.d/op5backup-rotate
+    owner: root
+    group: root
+    mode: 0644
+  become: true
