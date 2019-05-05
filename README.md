@@ -154,10 +154,6 @@ Roadmap
 -----------------
 
 ```
-    Badges
-    Add version 1.0.0
-    Galaxy
-
     PostConfig
         Cockpit
         PostFix
