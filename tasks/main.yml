@@ -19,8 +19,8 @@
   tags: [preconfig]
   when: op5_preconfig is defined and op5_preconfig
 
-- import_tasks: op5-monitor/main.yml
-  tags: [op5-monitor]
+- import_tasks: op5monitor/main.yml
+  tags: [op5monitor]
   when: op5_monitor is defined and op5_monitor
 
 - import_tasks: postconfig/main.yml

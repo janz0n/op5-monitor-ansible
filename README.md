@@ -84,53 +84,53 @@ New to Ansible
 --------------
 
 ```
-cd op5-monitor/tests
+cd op5monitor/tests
 ```
 
 edit *hosts*
 
 ```
-ansible-playbook --list-tags op5-monitor.yml
-ansible-playbook --list-tasks op5-monitor.yml
-ansible-playbook --ask-pass -u user --ask-become-pass --check op5-monitor.yml
-ansible-playbook --ask-pass -u user --ask-become-pass op5-monitor.yml
-ansible-playbook --ask-pass -u root op5-monitor.yml
+ansible-playbook --list-tags op5monitor.yml
+ansible-playbook --list-tasks op5monitor.yml
+ansible-playbook --ask-pass -u user --ask-become-pass --check op5monitor.yml
+ansible-playbook --ask-pass -u user --ask-become-pass op5monitor.yml
+ansible-playbook --ask-pass -u root op5monitor.yml
 ```
 
 Example Playbooks
 ----------------
 
-**op5-monitor**
+**op5monitor**
 
 ```
-- name: Playbook::op5-monitor
+- name: Playbook::op5monitor
   hosts: op5-servers 
  
   roles:
-    - role: op5-monitor
+    - role: op5monitor
 ```
 
-**op5-monitor only, preconfig and postconfig handled by other roles/tasks**
+**op5monitor only, preconfig and postconfig handled by other roles/tasks**
 
 ```
 - name: Playbook::op5-monitor only
   hosts: op5-servers 
  
   roles:
-    - role: op5-monitor
+    - role: op5monitor
       vars: 
         preconfig: false  
         op5_monitor: true
         postconfig: false
 ```
 
-**op5-monitor update**
+**op5monitor update**
 ```
 - name: Playbook::op5-monitor update
   hosts: op5-servers 
  
   roles:
-    - role: op5-monitor
+    - role: op5monitor
       vars:
         preconfig: true
         all_pkgs_state: installed
@@ -155,7 +155,6 @@ Roadmap
 
 ```
     Badges
-    Remove some commit history
     Add version 1.0.0
     Galaxy
 

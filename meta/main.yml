@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: op5-monitor
+  role_name: op5monitor
   author: Henrik Janzon
   description: op5-monitor server, management and network monitoring
   company: op5
