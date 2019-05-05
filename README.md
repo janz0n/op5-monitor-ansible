@@ -1,6 +1,11 @@
 Ansible Role for OP5 Monitor
 =========
 
+![GitHub](https://img.shields.io/github/license/janz0n/op5-monitor-ansible.svg)
+![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-janz0n.op5monitor-blue.svg)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/janz0n/op5-monitor-ansible.svg?label=version)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/40176.svg)
+
 OP5 Monitor is a software product for server, network monitoring and management based on the Open Source project Naemon. This repository contains OP5 Monitor ansible role.
 
 ![OP5 Monitor Ansible Role](https://user-images.githubusercontent.com/48694372/56851072-2d796d00-690b-11e9-9fe8-999b1696f268.png)
