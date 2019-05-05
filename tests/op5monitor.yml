@@ -3,7 +3,7 @@
   hosts: op5-servers
  
   roles:
-    - role: op5monitor
+    - role: janz0n.op5monitor
       vars:
         op5_hostname: op501.test.local
         op5_preconfig: true  

@@ -89,6 +89,7 @@ New to Ansible
 --------------
 
 ```
+ansible-galaxy install --roles-path . janz0n.op5monitor
 cd op5monitor/tests
 ```
 
@@ -112,7 +113,7 @@ Example Playbooks
   hosts: op5-servers 
  
   roles:
-    - role: op5monitor
+    - role: janz0n.op5monitor
 ```
 
 **op5monitor only, preconfig and postconfig handled by other roles/tasks**
@@ -122,7 +123,7 @@ Example Playbooks
   hosts: op5-servers 
  
   roles:
-    - role: op5monitor
+    - role: janz0n.op5monitor
       vars: 
         preconfig: false  
         op5_monitor: true
@@ -135,7 +136,7 @@ Example Playbooks
   hosts: op5-servers 
  
   roles:
-    - role: op5monitor
+    - role: janz0n.op5monitor
       vars:
         preconfig: true
         all_pkgs_state: installed

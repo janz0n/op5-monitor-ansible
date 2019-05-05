@@ -3,7 +3,7 @@
   hosts: op5-servers
  
   roles:
-    - role: op5monitor
+    - role: janz0n.op5monitor
       vars:
         op5_preconfig: true  
         op5_all_pkgs_state: latest
