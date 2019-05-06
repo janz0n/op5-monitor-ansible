@@ -8,4 +8,4 @@
         op5_preconfig: true  
         op5_all_pkgs_state: latest
         op5_monitor: false
-        postconfig: false
+        op5_postconfig: false

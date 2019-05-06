@@ -114,6 +114,10 @@ Example Playbooks
  
   roles:
     - role: janz0n.op5monitor
+      vars:
+        op5_hostname: op501.test.local
+        op5_timezone: Europe/Stockholm
+
 ```
 
 **op5monitor only, preconfig and postconfig handled by other roles/tasks**
@@ -125,9 +129,9 @@ Example Playbooks
   roles:
     - role: janz0n.op5monitor
       vars: 
-        preconfig: false  
+        op5_preconfig: false  
         op5_monitor: true
-        postconfig: false
+        op5_postconfig: false
 ```
 
 **op5monitor update**
@@ -138,10 +142,10 @@ Example Playbooks
   roles:
     - role: janz0n.op5monitor
       vars:
-        preconfig: true
-        all_pkgs_state: installed
+        op5_preconfig: true
+        op5_all_pkgs_state: installed
         op5_monitor_state: latest
-        postconfig: true
+        op5_postconfig: true
 ```
 
 License
