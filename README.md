@@ -60,7 +60,7 @@ op5_opt_pkgs:                  # optional packages to install
 ---
 op5_monitor: true            # true, false - import tasks to playbook
 
-op5_monitor_version: 8       # 7 or 8 - latest micro release within major
+op5_monitor_version: 8       # 7 or 8 - will install latest micro release within major
 op5_monitor_state: installed # installed or latest
 ---
 op5_postconfig: true                          # true, false - import tasks to playbook
@@ -117,7 +117,6 @@ Example Playbooks
       vars:
         op5_hostname: op501.test.local
         op5_timezone: Europe/Stockholm
-
 ```
 
 **op5monitor only, preconfig and postconfig handled by other roles/tasks**
