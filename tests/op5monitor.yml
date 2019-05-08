@@ -44,6 +44,11 @@
         op5_smsd_device: "/dev/ttyS0"
         op5_smsd_pin: ""
         op5_smsd_baudrate: 115200
+        op5_postfix_relayhost: ""
+        op5_postfix_fallback_relay: ""
+        op5_postfix_postfix_inet_protocols: "ipv4"
+        op5_postfix_smtp_tls_security_level: ""
+        op5_postfix_smtp_tls_mandatory_ciphers: ""
         op5_backup_storagepath: "/root/op5backups/"
         op5_backup_run: "59 1 * * *"
         op5_backup_rotate: "5 3 * * *"

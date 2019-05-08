@@ -68,6 +68,11 @@ op5_postconfig: true                          # true, false - import tasks to pl
 op5_smsd_device: "/dev/ttyS0"                 # serial port to use
 op5_smsd_pin: ""                              # sim-pin, empty equals no pin
 op5_smsd_baudrate: 115200                     # baudrate for sms-modem: TC35 - 38400, TC65 115200
+op5_postfix_relayhost: ""                     # [smtp.domain.tld] 
+op5_postfix_fallback_relay: ""                # [smtp.domain.tld]
+op5_postfix_postfix_inet_protocols: "ipv4"    # all, ipv4 ,ipv6
+op5_postfix_smtp_tls_security_level: ""       # e.g encrypt
+op5_postfix_smtp_tls_mandatory_ciphers: ""    # e.g high
 op5_backup_storagepath: "/root/op5backups/"   # path where to store backups
 op5_backup_run: "59 1 * * *"                  # when to run op5-backup, cron format
 op5_backup_rotate: "5 3 * * *"                # when to remove backups, cron format
@@ -165,7 +170,6 @@ Roadmap
 ```
     PostConfig
         Cockpit
-        PostFix
         License
         Certificate
         Optimizations 

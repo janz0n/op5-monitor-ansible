@@ -28,3 +28,9 @@
     connect_timeout: 20
   when: op5_monitor_state is defined and op5_monitor_state == "installed"
   become: true
+
+- name: Restart postfix
+  service:
+    name: postfix
+    state: restarted
+  become: true

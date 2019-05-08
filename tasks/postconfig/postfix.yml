@@ -1,0 +1,20 @@
+---
+- name: Update Postfix SMTP Configuration (/etc/postfix/main.cf)
+  lineinfile:
+    path: /etc/postfix/main.cf
+    line: "{{ item.name }} = {{ item.value }}"
+    regexp: "^{{ item.name }} ="
+  when: item.value is defined and item.value|length
+  loop:
+    - name: relayhost
+      value: "{{ op5_postfix_relayhost }}"
+    - name: fallback_relay
+      value: "{{ op5_postfix_fallback_relay }}"
+    - name: inet_protocols
+      value: "{{ op5_postfix_postfix_inet_protocols }}"
+    - name: smtp_tls_security_level
+      value: "{{ op5_postfix_smtp_tls_security_level }}"
+    - name: smtp_tls_mandatory_ciphers
+      value: "{{ op5_postfix_smtp_tls_mandatory_ciphers }}"
+  notify: Restart postfix
+  become: true
