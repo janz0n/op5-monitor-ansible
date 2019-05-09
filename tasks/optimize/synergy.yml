@@ -1,0 +1,9 @@
+---
+- name: Update Synergy (BSM) Sleep to '{{ op5_synergy_sleep }}'
+  lineinfile:
+    path: /opt/synergy/etc/config.lua
+    line: "\tsleep = {{ op5_synergy_sleep }},"
+    regexp: '^[ \t]sleep ='
+  when: op5_synergy_sleep is defined
+  notify: Restart synergy
+  become: true

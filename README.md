@@ -81,6 +81,8 @@ op5_backup_rotate_days: "7"                   # older than X backup files, shoul
 op5_optional: false # true, false - import tasks to playbook
 ---
 op5_optimize: false # true, false - import tasks to playbook
+
+op5_synergy_sleep: 300  # e.g 60
 ---
 op5_custom: false # true, false - import tasks to playbook
 ```
@@ -172,7 +174,6 @@ Roadmap
         Cockpit
         License
         Certificate
-        Optimizations 
 
     Verification
         Disk Usage

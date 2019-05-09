@@ -1,2 +1,4 @@
 ---
 op5_optimize: false # true, false - import tasks to playbook
+
+op5_synergy_sleep: 300 # e.g 60

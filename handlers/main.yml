@@ -34,3 +34,9 @@
     name: postfix
     state: restarted
   become: true
+
+- name: Restart synergy
+  service:
+    name: synergy
+    state: restarted
+  become: true
