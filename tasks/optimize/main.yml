@@ -2,3 +2,7 @@
 # tasks file for optimize
 - import_tasks: synergy.yml
   tags: [synergy]
+- import_tasks: trapper.yml
+  tags: [trapper]
+- import_tasks: php.yml
+  tags: [php]

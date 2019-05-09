@@ -1,0 +1,11 @@
+---
+- name: Trapper Status '{{ op5_trapper }}'
+  systemd:
+    name: "{{ item }}"
+    state: "{{'started' if op5_trapper else 'stopped' }}"
+    enabled: "{{ op5_trapper }}"
+    masked: "{{ not op5_trapper }}"
+  loop:
+    - processor
+    - collector
+  become: true

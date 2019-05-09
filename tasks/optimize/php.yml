@@ -1,0 +1,18 @@
+---
+- name: Modify php_memory_limit to '{{ op5_php_memory_limit }}'
+  lineinfile:
+    path: /etc/php.ini
+    regexp: '^memory_limit ='
+    line: "memory_limit = {{ op5_php_memory_limit }}M"
+
+- name: Modify php_max_execution_time to '{{ op5_php_max_execution_time }}'
+  lineinfile:
+    path: /etc/php.ini
+    regexp: '^max_execution_time ='
+    line: "max_execution_time = {{ op5_php_max_execution_time }}"
+
+- name: Modify php_max_input_vars to '{{ op5_php_max_input_vars }}'
+  lineinfile:
+    path: /etc/php.ini
+    regexp: '^max_input_vars ='
+    line: "max_input_vars = {{ op5_php_max_input_vars }}"

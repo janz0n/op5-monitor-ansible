@@ -1,5 +1,7 @@
 ---
 # tasks file for preconfig
+- import_tasks: addrepos.yml
+  tags: [addrepos]
 - import_tasks: optpkgs.yml
   tags: [optpkgs]
 - import_tasks: hostname.yml
