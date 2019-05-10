@@ -3,6 +3,7 @@ op5_optimize: false # true, false - import tasks to playbook
 
 op5_synergy_sleep: 300 # e.g 60
 op5_trapper: true  # true, false
+op5_logger: true # true, false
 op5_php_memory_limit: 128 # x MB
 op5_php_max_execution_time: 30 # x seconds
 op5_php_max_input_vars: 1000 # x vars

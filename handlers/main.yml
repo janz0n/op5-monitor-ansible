@@ -23,12 +23,6 @@
     msg: "{{ op5_monitor_yum_result.results[0].split('\n') | select('match', '.*(ERRO|Erro|erro|WARN|Warn|warn|FAIL|Fail|fail).*') | list }}"
   listen: "Reboot"
 
-- name: Reboot
-  reboot:
-    connect_timeout: 20
-  when: op5_monitor_state is defined and op5_monitor_state == "installed"
-  become: true
-
 - name: Restart postfix
   service:
     name: postfix
@@ -39,4 +33,16 @@
   service:
     name: synergy
     state: restarted
+  become: true
+
+- name: Restart rsyslog
+  service:
+    name: rsyslog
+    state: restarted
+  become: true
+
+- name: Reboot
+  reboot:
+    connect_timeout: 20
+  when: op5_monitor_state is defined and op5_monitor_state == "installed"
   become: true

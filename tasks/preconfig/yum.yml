@@ -1,5 +1,5 @@
 ---
-- name: Update All Packages
+- name: Update All Packages '{{ op5_all_pkgs_state }}'
   yum:
     name: '*'
     state: "{{ op5_all_pkgs_state }}"

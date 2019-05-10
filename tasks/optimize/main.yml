@@ -4,5 +4,7 @@
   tags: [synergy]
 - import_tasks: trapper.yml
   tags: [trapper]
+- import_tasks: logger.yml
+  tags: [logger]
 - import_tasks: php.yml
   tags: [php]

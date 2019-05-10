@@ -1,0 +1,26 @@
+---
+- name: Logger Rsyslog Configuration '{{ op5_logger }}'
+  shell: |
+    for file in /etc/rsyslog.d/op5-rsyslog{,-pgsql,-file}.conf{{'.disabled' if op5_logger else '' }}; do
+      {{ 'mv "$file" "${file%.*}"' if op5_logger else 'mv "$file" "${file}.disabled"' }}
+    done
+  args:
+    executable: /bin/bash
+    creates: /etc/rsyslog.d/op5-rsyslog.conf{{ '' if op5_logger else '.disabled' }}
+  notify: Restart rsyslog
+  become: true
+
+- name: Logger Postgresql '{{ op5_logger }}'
+  systemd:
+    name: postgresql
+    state: "{{ 'started' if op5_logger else 'stopped' }}"
+    enabled: "{{ op5_logger }}"
+    masked: "{{ not op5_logger }}"
+  become: true
+
+- name: Logger Rotate Logs '{{ op5_logger }}'
+  replace:
+    path: /etc/cron.d/op5-logger-logrotate
+    regexp: '{{ "^#([0-9].*)" if op5_logger else "(^[^#].*)" }}'
+    replace: '{{ "\1" if op5_logger else "#\1" }}'
+  become: true
