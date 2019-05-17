@@ -4,6 +4,7 @@
   args:
     warn: false
   when: op5_monitor_state is defined and op5_monitor_state == "latest"
+  become: true
 
 - name: Refresh SELinux Fact
   setup:

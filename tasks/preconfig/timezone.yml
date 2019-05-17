@@ -2,4 +2,5 @@
 - name: Set Timezone To '{{ op5_timezone }}'
   timezone:
     name: "{{ op5_timezone }}"
+  when: op5_timezone is defined and op5_timezone|length
   become: true

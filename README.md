@@ -29,7 +29,7 @@ Available variables are listed below, along with default values (see defaults/ma
 op5_preconfig: true            # true, false - import tasks to playbook 
 
 op5_hostname: op501.test.local # FQDN without trailing dot
-op5_timezone: Europe/Stockholm # timezone - use "timedatectl list-timezones"
+op5_timezone: Europe/Stockholm # timezone - use "timedatectl list-timezones", empty string will not config timezone
 op5_all_pkgs_state: latest     # installed or latest 
 op5_selinux_state: permissive  # enforcing, permissive, disabled
 op5_firewalld_enabled: yes     # yes, no
@@ -42,7 +42,7 @@ op5_firewalld_allowed_ports:   # allowed ports, public zone
   - 161/udp
   - 162/udp
   - 514/udp
-op5_ntp_servers:               # ntp servers to use
+op5_ntp_servers:               # ntp servers to use, empty string will not config chronyd and ntp-servers
   - 0.pool.ntp.org
   - 1.pool.ntp.org
   - 2.pool.ntp.org
@@ -65,20 +65,18 @@ op5_monitor_state: installed # installed or latest
 ---
 op5_postconfig: true                          # true, false - import tasks to playbook
 
-op5_smsd_device: "/dev/ttyS0"                 # serial port to use
-op5_smsd_pin: ""                              # sim-pin, empty equals no pin
+op5_smsd_device: "/dev/ttyS0"                 # serial port to use, empty string will not config smsd settings
+op5_smsd_pin: ""                              # sim-pin, empty string equals no pin
 op5_smsd_baudrate: 115200                     # baudrate for sms-modem: TC35 - 38400, TC65 115200
 op5_postfix_relayhost: ""                     # [smtp.domain.tld] 
 op5_postfix_fallback_relay: ""                # [smtp.domain.tld]
 op5_postfix_postfix_inet_protocols: "ipv4"    # all, ipv4 ,ipv6
 op5_postfix_smtp_tls_security_level: ""       # e.g encrypt
 op5_postfix_smtp_tls_mandatory_ciphers: ""    # e.g high
-op5_backup_storagepath: "/root/op5backups/"   # path where to store backups
+op5_backup_storagepath: "/root/op5backups/"   # path where to store backups, empty string will not config op5backups
 op5_backup_run: "59 1 * * *"                  # when to run op5-backup, cron format
 op5_backup_rotate: "5 3 * * *"                # when to remove backups, cron format
 op5_backup_rotate_days: "7"                   # older than X backup files, should be deleted
----
-op5_optional: false # true, false - import tasks to playbook
 ---
 op5_optimize: false # true, false - import tasks to playbook
 
@@ -88,8 +86,6 @@ op5_logger: true # true, false
 op5_php_memory_limit: 128 # x MB
 op5_php_max_execution_time: 30 # x seconds
 op5_php_max_input_vars: 1000 # x vars
----
-op5_custom: false # true, false - import tasks to playbook
 ```
 
 Dependencies

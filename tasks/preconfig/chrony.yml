@@ -3,6 +3,7 @@
   yum:
     name: chrony
     state: installed
+  when: op5_ntp_servers is defined and op5_ntp_servers|length
   become: true
 
 - name: Add NTP Servers To /etc/chrony.conf
@@ -14,6 +15,7 @@
     group: root
     mode: 0644
   notify: "Restart chronyd"
+  when: op5_ntp_servers is defined and op5_ntp_servers|length
   become: true
 
 - name: Verify Chronyd Started And Enabled
@@ -21,4 +23,5 @@
     name: chronyd
     state: started
     enabled: yes
+  when: op5_ntp_servers is defined and op5_ntp_servers|length
   become: true

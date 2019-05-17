@@ -27,14 +27,6 @@
   tags: [postconfig]
   when: op5_postconfig is defined and op5_postconfig
 
-- import_tasks: optional/main.yml
-  tags: [optional]
-  when: op5_optional is defined and op5_optional
-
 - import_tasks: optimize/main.yml
   tags: [optimize]
   when: op5_optimize is defined and op5_optimize
-
-- import_tasks: custom/main.yml
-  tags: [custom]
-  when: op5_custom is defined and op5_custom

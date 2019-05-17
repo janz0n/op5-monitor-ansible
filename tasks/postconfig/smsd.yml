@@ -8,4 +8,5 @@
     group: root
     mode: 0600
   notify: "Restart smsd"
+  when: op5_smsd_device is defined and op5_smsd_device|length
   become: true

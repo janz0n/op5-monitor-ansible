@@ -7,6 +7,7 @@
     owner: root
     group: root
     mode: 0644
+  when: op5_backup_storagepath is defined and op5_backup_storagepath|length
   become: true
 
 - name: Add op5backup Schedule (etc/cron.d/op5backup)
@@ -16,6 +17,7 @@
     owner: root
     group: root
     mode: 0644
+  when: op5_backup_storagepath is defined and op5_backup_storagepath|length
   become: true
 
 - name: Add op5backup Rotate Schedule (etc/cron.d/op5backup-rotate)
@@ -25,4 +27,5 @@
     owner: root
     group: root
     mode: 0644
+  when: op5_backup_storagepath is defined and op5_backup_storagepath|length
   become: true
