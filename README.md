@@ -57,6 +57,7 @@ op5_opt_pkgs:                  # optional packages to install
   - bzip2
   - unzip
   - open-vm-tools
+  - deltarpm
 ---
 op5_monitor: true            # true, false - import tasks to playbook
 
